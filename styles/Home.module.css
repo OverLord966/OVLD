@@ -1,16 +1,22 @@
 .container {
   padding: 0 2rem;
+  background-color: #111;
 }
 
 .main {
-  min-height: 100vh;
+  /* min-height: 100vh;
   padding: 4rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  margin: auto;
+  width: 50%;
+  padding: 10px;
 }
+
+
 
 .footer {
   display: flex;
@@ -106,24 +112,312 @@
 .logo {
   height: 1em;
   margin-left: 0.5rem;
+  text-align: center;
+  justify-content: center;
+  
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
+.header {
+  border: solid black;
+  display: flex;
+  flex-direction: row;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  border: 0ch;
+  text-align: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  .card,
-  .footer {
-    border-color: #222;
-  }
-  .code {
-    background: #111;
-  }
-  .logo img {
-    filter: invert(1);
-  }
+.container_singup {
+  border: solid black;
+  height: inherit;
+  width: auto;
+}
+
+.headeritem {
+  flex: 3;
+  display: flex;
+  flex-direction: row;
+}
+
+.login {
+  position: relative;
+}
+.body {
+  
+  padding: 5px;
+  text-align: center;
+  margin: 6px;
+  display: flex;
+  justify-content: space-around;
+
+
+}
+
+.header h1 {
+  color: white;
+  position: relative;
+  left: 50px;
+  padding-top: 70px;
+  text-align: left;
+  text-align: justify;
+  position: relative;
+  top: 60px;
+  left: -100px;
+}
+
+.header h5 {
+  color: white;
+  position: relative;
+  top: 60px;
+  left: -100px;
+  text-align: justify;
+}
+
+.BunkerImage img {
+  max-width: 300px;
+  border-radius: 5px;
+  object-fit: cover;
+  width: 230px;
+  height: 230px;
+}
+
+.Dados {
+  text-align: center;
+}
+
+.logo {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  top: -60px;
+  left: -20px;
+}
+
+.icones {
+  width: 100px;
+  height: auto;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-items: center;
+  transform: translate(150px, 0px);
+}
+
+.formas {
+  width: 1000px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.parte2 h5 {
+  text-align: center;
+}
+
+.parte2 h2 {
+  text-align: center;
+  padding-top: 70px;
+}
+
+.tags img {
+  width: 30px;
+  grid-row: auto;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.activeButton {
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  background: none;
+  background-color: white;
+  border: solid 3px white;
+  color: #425f57;
+  margin: 3px;
+  align-items: center;
+  font-size: 20px;
+  border-radius: 12px;
+}
+
+.inactiveButton {
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  background: none;
+  background-color: #425f57;
+  border: solid 3px #425f57;
+  color: white;
+  margin: 3px;
+  align-items: center;
+  font-size: 20px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.titulo {
+  text-align: left;
+}
+
+.container h2 {
+  text-align: center;
+}
+
+.images {
+  width: 300px;
+  height: 300px;
+  max-width: 5000px;
+  max-height: 5000px;
+  background: none;
+}
+
+.carouselImage p {
+  display: flex;
+}
+
+.main {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.texto {
+  background: none;
+  border: none;
+  float: left;
+  color: black;
+  font-size: 20px;
+}
+
+.mainIndex {
+  text-align: center;
+}
+
+.mainAbout h1 {
+  text-align: center;
+  padding: 7%;
+}
+
+.mainAbout p {
+  text-align: justify;
+}
+
+.mainAbout img {
+  border-radius: 8%;
+  margin-bottom: 10%;
+  margin-left: 3%;
+  width: 250px;
+  height: 250px;
+  background-color: #0070f3;
+}
+.footerMain {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.mainNav {
+  background-color: #425f57;
+  height: 50px;
+  padding: 20px;
+}
+
+.input {
+  /* opacity: 0.7; */
+  width: 500px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  padding: 1px;
+  padding: 1px;
+}
+
+.submitButton {
+  /* opacity: 0.7; */
+  width: 150px;
+  height: 50px;
+  font-size: 1.2em;
+  border-radius: 10px;
+  padding: 1px;
+  background-color: #425f57;
+  color: white;
+}
+
+.reservationForm {
+  display: inline-block;
+  margin-left: -10%;
+}
+
+.artWork img {
+  width: 300px;
+  height: 300px;
+}
+
+.thumbnail {
+  top: -50px;
+  left: -35px;
+  display: block;
+  z-index: 999;
+  cursor: pointer;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease;
+}
+
+/*change the number below to scale to the appropriate size*/
+.thumbnail:hover {
+  transform: scale(1.2);
+}
+
+.mainAbout {
+  margin: auto;
+  width: 40%;
+  padding: 10px;
+
+
+}
+
+.reservationBox {
+  background-color: #425F57;
+  width: 300px;
+  border-radius: 20px;
+  color: white;
+  padding: 20px;
+  text-align: left;
+  margin: 1em;
+  flex: 0 0 18%;
+}
+
+.reservationList {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: center;
+
+}
+
+.homeExpo {
+  margin: auto;
+  width: 50%;
+  text-align: justify;
+
+
+}
+
+.homeExpo h1 {
+  text-align: center;
+  padding: 5%;
+}
+
+.homeExpo p {
+  text-align: justify;
+  padding: 1%;
 }
