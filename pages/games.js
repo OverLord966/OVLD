@@ -7,12 +7,14 @@ const bunkers = [
   {
     imagePath: "./img/WF1.png",
     name: "Withered Fredbear's Diner",
-    Year: "2021"
+    Year: "2021",
+    Description: "Welcome to my diner kids, a fun place to meet the crew and eating a lots of pizza. You will start as nightguard of the pizzeria, your objective?? survive to 6AM, something creepy and wrong is upon the pizzeria, will u figure it the mystery behind it??"
   },
   {
     imagePath: "./img/WF2.png",
     name: "Withered Fredbear's 2",
-    Year: "2023"
+    Year: "2023",
+    Description: "Welcome, you live in a little village where did u got a job at the new Withered Fredbear's 2. The job is simple: survive at 6AM and then walk out, but something is wrong with the town, creepy animatronics roams and someone is back. Will you find everything and save the town?"
   },
 ]
 
@@ -31,14 +33,17 @@ export default function Home() {
     <div className={styles.mainAbout}>
       <Header></Header>
       <div className={styles.mainAbout}>
-        <h1>OVLD</h1>
-        
       </div>
       <div className={styles.mainAbout}>
-      <img src="/img/logo1.png" />
       </div>
-      <h1>About the website</h1>
-        <p>Webpage created using nextjs.</p>
+      <div className={styles.body}>
+        <BunkerCard data={bunkers[0]}></BunkerCard>        
+      </div>    
+      <div className={styles.body}>
+        <BunkerCard data={bunkers[1]}></BunkerCard>
+        
+
+      </div>     
     </div >
 
 
@@ -72,6 +77,7 @@ function BunkerCard({ data }) {
         <div className={styles.Dados}>
           <div className={styles.Nomes}>{data.name}</div>
           <div className={styles.Preços}>{data.Year}</div>
+          <div className={styles.Preços}>{data.Description}</div>
         </div>        
       </div>
     </div>
