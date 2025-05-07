@@ -1,0 +1,313 @@
+/* style.css - OverSecurity */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0f172a;
+    color: #f1f5f9;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e293b;
+    padding: 0rem 3rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    color: #4ade80;
+    font-weight: bold;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #f1f5f9;
+    transition: color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #4ade80;
+  }
+  
+  .hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(90deg, #1e293b, #0f172a);
+  }
+  
+  .hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    
+  }
+  .h2{
+    display: flex;
+    align-items: center;
+  }
+  .hero h3{
+
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Estilo do botão para o quiz */
+.btn {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    background-color: #4ade80; /* Verde */
+    color: #1a1a1a;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Adicionando um pouco de espaço */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn:hover {
+    background-color: #36b036; /* Verde mais escuro ao passar o mouse */
+  }
+  
+  /* Estilo do Modal */
+  .quiz-modal {
+    display: none; /* Inicialmente invisível */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Coloca o modal acima de outros conteúdos */
+  }
+  
+  .quiz-content {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 70%;
+    max-width: 500px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adicionando sombra para destacar */
+  }
+  
+  .quiz-question {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  .quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .quiz-options button {
+    padding: 10px 70px ;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 500px;
+    background-color: #4ade80;
+    color: #1a1a1a;
+    border: none;
+    text-align: center;
+    border-radius: 4px;
+    cursor:progress;
+    transition: background-color 0.3s ease;
+  }
+  
+  .quiz-options button:hover {
+    background-color: #36b036;
+  }
+  
+  .quiz-next, .quiz-close {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #4ade80;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  /* Estilo comum para os botões "Próxima", "Fechar" e "Voltar a Fazer" */
+.quiz-next, .quiz-close, .quiz-restart {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #4ade80;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.quiz-next:hover, .quiz-close:hover, .quiz-restart:hover {
+  background-color: #36b036;
+}
+.quiz-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz-content button {
+  margin: 5px; /* Espaçamento entre os botões */
+}
+
+/* Alinhamento dos botões "Voltar a Fazer" e "Fechar" */
+.quiz-buttons {
+  display: flex;
+  gap: 10px; /* Espaçamento entre os botões */
+  justify-content: center;
+  width: 100%; /* Faz com que os botões fiquem no centro */
+}
+
+  .quiz-next:hover, .quiz-close:hover {
+    background-color: #36b036;
+  }
+  
+  /* Estilo para quando o modal está aberto */
+  .quiz-modal.show {
+    display: flex; /* Exibe o modal */
+  }
+  .comece{
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    background-color: #4ade80; /* Verde */
+    color: #1a1a1a;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .destaques {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: auto;
+  }
+  .destaques h2{
+    display: flex;
+    align-items: center;
+  }
+  .destaques h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .card {
+    background-color: #1e293b;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card h4 {
+    color: #4ade80;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .footer {
+    background-color: #1e293b;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.875rem;
+    color: #94a3b8;
+    margin-top: 2rem;
+  }
+  
+   /* Formulário de Contato */
+   .formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .formulario label {
+    font-size: 1.1rem;
+    color: #fff;
+  }
+  
+  .formulario input,
+  .formulario textarea {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #2c2c2c;
+    border: 1px solid #4ade80;
+    color: #fff;
+    border-radius: 4px;
+  }
+  
+  .formulario input:focus,
+  .formulario textarea:focus {
+    outline: none;
+    border-color: #80ff80;
+  }
+  
+  /* Estilos do botão de envio no formulário */
+  .formulario button {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    background-color: #4ade80;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .formulario button:hover {
+    background-color: #36b036;
+  }
+  
+  @media (max-width: 600px) {
+    .formulario {
+      width: 90%;
+    }
+  
+    .formulario button {
+      width: 100%;
+    }
+  
+    .cards {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+  
