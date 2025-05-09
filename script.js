@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const startBtn    = document.getElementById("startQuizBtn");
+  const startBtn    = document.getElementById("btn");
   const modal       = document.getElementById("quiz-modal");
   const closeBtn    = document.getElementById("quiz-close");
   const restartBtn  = document.getElementById("quiz-restart");
