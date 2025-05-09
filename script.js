@@ -6,8 +6,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const questionEl  = document.getElementById("quiz-question");
   const optionsEl   = document.getElementById("quiz-options");
 
-  // 20 perguntas de Cibersegurança
+  // Função para baralhar arrays
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
   const quizQuestions = [
+    // [mesmas 20 perguntas que já tens aqui...]
     {
       question: "Quais das seguintes práticas ajudam a proteger contra ataques de phishing?",
       options: [
@@ -16,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Compartilhar senhas em redes sociais",
         "Nunca clicar em links suspeitos"
       ],
-      correct: [1, 3]  // índices 1 (“Verificar…”) e 3 (“Nunca clicar…”)
+      correct: [1, 3]
     },
     {
       question: "O que é um ataque DoS?",
@@ -33,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
       options: ["Virtual Private Network","Vírus Protegido Neutralizado","Virtual Proxy Node","Verificação de Privacidade Nacional"],
       correct: 0
     },
-    // +17 novas:
     {
       question: "O que é phishing?",
       options: ["Tipo de firewall","Envio de e-mail fraudulento","Ataque DoS","Criptografia de dados"],
@@ -113,9 +120,24 @@ document.addEventListener("DOMContentLoaded", () => {
       question: "Qual porta padrão é usada por HTTPS?",
       options: ["443","80","21","25"],
       correct: 0
-    },
-    
+    }
   ];
+
+  // 🧠 Baralha perguntas e respostas antes de iniciar o quiz
+  shuffleArray(quizQuestions);
+  quizQuestions.forEach(q => {
+    const original = q.options.map((opt, i) => ({ opt, index: i }));
+    shuffleArray(original);
+    q.options = original.map(o => o.opt);
+    if (Array.isArray(q.correct)) {
+      q.correct = original
+        .map((o, i) => ({ i, originalIdx: o.index }))
+        .filter(o => q.correct.includes(o.originalIdx))
+        .map(o => o.i);
+    } else {
+      q.correct = original.findIndex(o => o.index === q.correct);
+    }
+  });
 
   let currentIndex = 0;
   let score = 0;
@@ -128,11 +150,11 @@ document.addEventListener("DOMContentLoaded", () => {
     resetState();
     const q = quizQuestions[currentIndex];
     const multi = Array.isArray(q.correct) && q.correct.length > 1;
-
+  
     questionEl.textContent = q.question;
-
+  
     if (!multi) {
-      // resposta única
+      // Resposta única
       q.options.forEach((opt, i) => {
         const btn = document.createElement("button");
         btn.textContent = opt;
@@ -142,22 +164,42 @@ document.addEventListener("DOMContentLoaded", () => {
         optionsEl.appendChild(btn);
       });
     } else {
-      // múltipla: botões toggle
+      // Resposta múltipla
+      const selectedSummary = document.createElement("div");
+      selectedSummary.id = "selected-summary";
+      selectedSummary.style.marginBottom = "10px";
+      selectedSummary.style.fontStyle = "italic";
+      selectedSummary.textContent = "Selecionadas: nenhuma";
+      optionsEl.appendChild(selectedSummary);
+  
       q.options.forEach((opt, i) => {
         const btn = document.createElement("button");
         btn.textContent = opt;
         btn.className = "option-btn";
         btn.dataset.index = i;
-        btn.addEventListener("click", () => btn.classList.toggle("selected"));
+        btn.addEventListener("click", () => {
+          btn.classList.toggle("selected");
+          updateSelectedSummary();
+        });
         optionsEl.appendChild(btn);
       });
+  
       const confirmBtn = document.createElement("button");
       confirmBtn.textContent = "Confirmar";
       confirmBtn.className = "option-btn";
       confirmBtn.addEventListener("click", handleMultiple);
       optionsEl.appendChild(confirmBtn);
+  
+      function updateSelectedSummary() {
+        const selected = Array.from(optionsEl.querySelectorAll(".option-btn.selected"))
+          .map(btn => btn.textContent);
+        selectedSummary.textContent = selected.length
+          ? `Selecionadas: ${selected.join(", ")}`
+          : "Selecionadas: nenhuma";
+      }
     }
   }
+  
 
   function handleSingle(idx, btn) {
     const q = quizQuestions[currentIndex];
@@ -167,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.classList.add("correct");
     } else {
       btn.classList.add("incorrect");
-      const corr = document.querySelector(`.option-btn[data-index=\"${q.correct}\"]`);
+      const corr = document.querySelector(`.option-btn[data-index="${q.correct}"]`);
       corr && corr.classList.add("correct");
     }
     nextAfterDelay();
@@ -175,10 +217,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function handleMultiple() {
     const q = quizQuestions[currentIndex];
-    const selected = Array.from(document.querySelectorAll(".option-btn.selected")).map(b => +b.dataset.index);
+    const optionButtons = Array.from(optionsEl.querySelectorAll(".option-btn"))
+      .filter(btn => btn.dataset.index !== undefined);
+
+    const selected = optionButtons.filter(btn => btn.classList.contains("selected")).map(btn => +btn.dataset.index);
+
     disableOptions();
+
     selected.forEach(idx => {
-      const btn = document.querySelector(`.option-btn[data-index=\"${idx}\"]`);
+      const btn = optionsEl.querySelector(`.option-btn[data-index="${idx}"]`);
       if (q.correct.includes(idx)) {
         score++;
         btn.classList.add("correct");
@@ -186,11 +233,14 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.classList.add("incorrect");
       }
     });
-    // marca quaisquer corretas não selecionadas
+
     q.correct.forEach(idx => {
-      const btn = document.querySelector(`.option-btn[data-index=\"${idx}\"]`);
-      if (btn && !btn.classList.contains("correct")) btn.classList.add("correct");
+      const btn = optionsEl.querySelector(`.option-btn[data-index="${idx}"]`);
+      if (btn && !btn.classList.contains("correct")) {
+        btn.classList.add("correct");
+      }
     });
+
     nextAfterDelay();
   }
 
@@ -215,8 +265,15 @@ document.addEventListener("DOMContentLoaded", () => {
   function showResults() {
     resetState();
     questionEl.textContent = `Quiz concluído! Acertou ${score} de ${quizQuestions.length}.`;
+
+    // Salva pontos no localStorage se estiver logado
+    const user = window.getCurrentUser?.();
+    if (user) {
+      window.addScoreToUser(score);
+    }
+
     restartBtn.style.display = "inline-block";
-    closeBtn.style.display   = "inline-block";
+    closeBtn.style.display = "inline-block";
   }
 
   startBtn.addEventListener("click", () => {
