@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const startBtn    = document.getElementById("btn");
-  const modal       = document.getElementById("quiz-modal");
-  const closeBtn    = document.getElementById("quiz-close");
-  const restartBtn  = document.getElementById("quiz-restart");
-  const questionEl  = document.getElementById("quiz-question");
-  const optionsEl   = document.getElementById("quiz-options");
+  const startBtn = document.getElementById("startBtn");
+  const modal = document.getElementById("quiz-modal");
+  const closeBtn = document.getElementById("quiz-close");
+  const restartBtn = document.getElementById("quiz-restart");
+  const questionEl = document.getElementById("quiz-question");
+  const optionsEl = document.getElementById("quiz-options");
 
   // Função para baralhar arrays
   function shuffleArray(array) {
@@ -278,7 +278,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   startBtn.addEventListener("click", () => {
     startBtn.style.display   = "none";
-    restartBtn.style.display = "none";
     closeBtn.style.display   = "inline-block";
     modal.style.display      = "flex";
     showQuestion();
@@ -287,6 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
   closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
     startBtn.style.display = "block";
+    restartBtn.style.display = "inline-block";
   });
 
   restartBtn.addEventListener("click", () => {
