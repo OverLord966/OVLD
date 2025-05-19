@@ -45,15 +45,28 @@ body {
   }
   
   .hero {
+
+    color: white;
+    padding: 100px 20px;
     text-align: center;
-    padding: 4rem 2rem;
-    background: linear-gradient(90deg, #1e293b, #0f172a);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .hero h2 {
     font-size: 3rem;
-    margin-bottom: 1rem;
-    
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  .hero p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    color: #d1d5db;
   }
   .h2{
     display: flex;
@@ -62,10 +75,6 @@ body {
   .hero h3{
 
     font-size: 2.5rem;
-  }
-  .hero p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
   }
   
   /* Estilo do botão para o quiz */
@@ -205,14 +214,16 @@ body {
     display: flex; /* Exibe o modal */
   }
   .comece{
+    background-color: #4ade80;
+    color: #000;
     padding: 12px 24px;
-    font-size: 1.2rem;
-    background-color: #4ade80; /* Verde */
-    color: #1a1a1a;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
     transition: background-color 0.3s ease;
+  }
+  .comece:hover {
+    background-color: #22c55e;
   }
   .destaques {
     padding: 3rem 2rem;
@@ -399,3 +410,111 @@ body {
     bottom: 0;
     width: 100%;
   }
+  section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  section h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #22c55e;
+  }
+  
+  section p, section ul {
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+  
+  ul {
+    list-style: disc;
+    padding-left: 20px;
+  }
+  
+  a {
+    color: #4ade80;
+    text-decoration: underline;
+  }
+  /* === Estilos específicos para a página de tutorial Nmap === */
+
+.tutorial-container {
+  padding: 2rem;
+  background-color: #1e293b;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.tutorial-step {
+  margin-bottom: 2rem;
+  background-color: #0f172a;
+  padding: 1rem 1.5rem;
+  border-left: 5px solid #4ade80;
+  border-radius: 6px;
+}
+
+.tutorial-step h4 {
+  color: #4ade80;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tutorial-step p {
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+pre, code {
+  background-color: #1e293b;
+  color: #93c5fd;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  overflow-x: auto;
+  display: block;
+  margin: 1rem 0;
+}
+.descricao-ferramentas {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 30px auto;
+  border-radius: 12px;
+  max-width: 800px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.descricao-ferramentas h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+.descricao-ferramentas ul {
+  margin-left: 20px;
+}
+.missoes {
+  padding: 2rem;
+}
+
+.missao-card {
+  background-color: #1e1e2f;
+  color: #fff;
+  border-left: 5px solid #00bfa6;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.missao-card:hover {
+  transform: scale(1.01);
+}
+
+.missao-card h3 {
+  margin-top: 0;
+}
+
+.missao-card code {
+  background-color: #333;
+  padding: 2px 6px;
+  border-radius: 5px;
+  color: #0ff;
+}
